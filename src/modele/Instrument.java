@@ -49,7 +49,7 @@ public class Instrument {
     }
     
     public void trierFonds(){
-      //  Collections.sort(valeurs, valeurs.get(0).getAmount());
+      // Collections.sort(valeurs, valeurs.get(0).getAmount());
     
     }
 }

@@ -11,10 +11,13 @@ package modele;
  */
 public class CompareFonds extends Fonds implements Comparable<Fonds> {
 
+    
     public CompareFonds(double _amount, String _key) {
         super(_amount, _key);
     }
-
+  public CompareFonds(Fonds fond) {
+        super(fond.getAmount(), fond.getKey());
+    }
 
 
     public boolean equals (Fonds fond){
@@ -24,13 +27,13 @@ public class CompareFonds extends Fonds implements Comparable<Fonds> {
     
     @Override
     public int compareTo(Fonds fond) {
-        if (this.getAmount() < fond.getAmount()) {
-            return -1;
+        if (this.equals(fond)){
+             return 0;
         }
-        if (this.getAmount() > fond.getAmount()) {
+        else if (this.getAmount() > fond.getAmount()) {
             return 1;
         }
-        return 0;
+       return -1;
     }
 
 }
