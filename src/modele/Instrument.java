@@ -7,7 +7,7 @@ package modele;
 
 import java.util.ArrayList;
 import java.util.Collections;
-//caca
+
 /**
  *
  * @author Marine1
@@ -15,11 +15,21 @@ import java.util.Collections;
 public class Instrument {
 
     ArrayList<Fonds> valeurs;
+    String key;
 
-    public Instrument() {
+    public Instrument(String _key) {
+        this.key = _key;
         this.valeurs = new ArrayList<Fonds>();
     }
 
+        public void setKey(String _key) {
+        this.key = _key;
+    }
+
+    public String getKey() {
+        return this.key;
+    }
+    
     public void setValeurs(ArrayList<Fonds> _valeurs) {
         this.valeurs = _valeurs;
     }
