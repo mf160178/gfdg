@@ -24,6 +24,24 @@ public class Portefeuille {
         mapFonds = new HashMap<String, Fonds>();
         mapInstrument = new HashMap<String, Instrument>();
     }
+    
+    public HashMap <String, Fonds> getMapFonds(){
+        return this.mapFonds;
+    }
+        
+    public HashMap <String, Instrument> getMapInstrument(){
+        return this.mapInstrument;
+    }
+    
+    public void setMapFonds(HashMap<String, Fonds> _mapfonds){
+        HashMap<String, Fonds> clone = (HashMap<String, Fonds>) _mapfonds.clone();
+        this.mapFonds = clone;
+    }
+    
+    public void setMapInstrument(HashMap<String, Instrument> _mapinstrument){
+        HashMap<String, Instrument> clone = (HashMap<String, Instrument>) _mapinstrument.clone();
+        this.mapInstrument = clone;
+    }
 
     public double searchFonds(String key) {
         try{
