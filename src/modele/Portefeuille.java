@@ -65,8 +65,7 @@ public class Portefeuille {
         }catch(FondExistant erreur){
             System.out.print("SYKE YOU FOOL"); 
         }
-        
-       
+
     }
 
     public void addFondsToInstrument(Fonds fond) {
@@ -75,5 +74,35 @@ public class Portefeuille {
 
         valInstru.add(fond);
     }
-
+//Dans la classe Portefeuille, implémenter une méthode qui supprime un fonds (de sa HashMap), avec en
+//paramètre sa clé. Cette méthode appellera d’abord la méthode de recherche du fonds (question 1.3). Si
+//l’exception FondsInexistant est générée, afficher un message d’erreur ; sinon supprimer le fonds recherché.
+//Avec les mêmes règles, implémenter aussi la méthode de suppression d’un instrument en vidant d’abord
+//sa collection de fonds.
+    
+        public void removeFonds(String key) {
+  
+        try{
+        if (searchFonds(key)==-1){
+             throw new FondsInexistants(); 
+        }
+        this.mapFonds.remove(key);
+        }catch(FondsInexistants erreur){
+            System.out.print("ZBLEU"); 
+        }
+    }
+        
+                public void removeInstrument(String key) {
+  
+        try{
+        if (searchInstrument(key)==null){
+             throw new FondsInexistants(); 
+        }
+        this.mapInstrument.get(key).valeurs.clear();
+        this.mapInstrument.remove(key);
+        }catch(FondsInexistants erreur){
+            System.out.print("INSTRU DETRUIT"); 
+        }
+    }
+    
 }
