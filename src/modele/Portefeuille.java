@@ -43,11 +43,10 @@ public class Portefeuille {
         this.mapInstrument = clone;
     }
 
-    public boolean fondsExist(String key){
-           return this.mapFonds.get(key) != null;
+    public boolean fondsExist(String key) {
+        return this.mapFonds.get(key) != null;
     }
-    
-    
+
     public double searchFonds(String key) {
         try {
             if (!fondsExist(key)) {
@@ -79,7 +78,7 @@ public class Portefeuille {
     public void createFonds(String key, double amount) {
 
         try {
-       
+
             if (fondsExist(key)) {
                 throw new FondExistant();
             } else {
@@ -98,11 +97,6 @@ public class Portefeuille {
 
         valInstru.add(fond);
     }
-//Dans la classe Portefeuille, implémenter une méthode qui supprime un fonds (de sa HashMap), avec en
-//paramètre sa clé. Cette méthode appellera d’abord la méthode de recherche du fonds (question 1.3). Si
-//l’exception FondsInexistant est générée, afficher un message d’erreur ; sinon supprimer le fonds recherché.
-//Avec les mêmes règles, implémenter aussi la méthode de suppression d’un instrument en vidant d’abord
-//sa collection de fonds.
 
     public void removeFonds(String key) {
 

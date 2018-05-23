@@ -6,6 +6,7 @@
 package modele;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
@@ -47,7 +48,7 @@ public class Instrument {
     }
 
     public void trierFonds() {
-        // Collections.sort(valeurs, valeurs.get(0).getAmount());
+        Collections.sort(valeurs);
 
     }
 }
