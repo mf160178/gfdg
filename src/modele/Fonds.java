@@ -26,13 +26,13 @@ public class Fonds {
     public String getKey() {
         return this.key;
     }
-    
+
     public void setAmount(double _amount) {
         this.amount = _amount;
     }
 
     public double getAmount() {
         return this.amount;
-    }    
+    }
 
 }

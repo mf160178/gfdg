@@ -24,64 +24,70 @@ public class Portefeuille {
         mapFonds = new HashMap<String, Fonds>();
         mapInstrument = new HashMap<String, Instrument>();
     }
-    
-    public HashMap <String, Fonds> getMapFonds(){
+
+    public HashMap<String, Fonds> getMapFonds() {
         return this.mapFonds;
     }
-        
-    public HashMap <String, Instrument> getMapInstrument(){
+
+    public HashMap<String, Instrument> getMapInstrument() {
         return this.mapInstrument;
     }
-    
-    public void setMapFonds(HashMap<String, Fonds> _mapfonds){
+
+    public void setMapFonds(HashMap<String, Fonds> _mapfonds) {
         HashMap<String, Fonds> clone = (HashMap<String, Fonds>) _mapfonds.clone();
         this.mapFonds = clone;
     }
-    
-    public void setMapInstrument(HashMap<String, Instrument> _mapinstrument){
+
+    public void setMapInstrument(HashMap<String, Instrument> _mapinstrument) {
         HashMap<String, Instrument> clone = (HashMap<String, Instrument>) _mapinstrument.clone();
         this.mapInstrument = clone;
     }
 
+    public boolean fondsExist(String key){
+           return this.mapFonds.get(key) != null;
+    }
+    
+    
     public double searchFonds(String key) {
-        try{
-            if (this.mapFonds.get(key)==null){
-                throw new FondsInexistants(); 
+        try {
+            if (!fondsExist(key)) {
+                throw new FondsInexistants();
             }
-                
-        Fonds searched = this.mapFonds.get(key);
-        return searched.getAmount();
-        }catch(FondsInexistants erreur){
-            System.out.print("AAAAAAAAAAAA");
-            
+            Fonds searched = this.mapFonds.get(key);
+            return searched.getAmount();
+        } catch (FondsInexistants erreur) {
+            System.out.print("searchFonds");
+
         }
- return -1;
+        return -1;
     }
 
     public ArrayList<Fonds> searchInstrument(String key) {
         Instrument searched = null;
-        try{
-            if (this.mapInstrument.get(key)==null){
-                throw new InstrumentInexistant(); 
+        try {
+            if (this.mapInstrument.get(key) == null) {
+                throw new InstrumentInexistant();
             }
-        searched = this.mapInstrument.get(key);
-        }catch(InstrumentInexistant erreur){
-            System.out.print("Nope"); 
+            searched = this.mapInstrument.get(key);
+        } catch (InstrumentInexistant erreur) {
+            System.out.print("searchInstrument");
         }
 
         return searched.getValeurs();
     }
 
     public void createFonds(String key, double amount) {
-  
-        try{
-        if (searchFonds(key)!=-1){
-             throw new FondExistant(); 
-        }
-         Fonds newFond = new Fonds(amount,key);
-        this.mapFonds.put(key, newFond);
-        }catch(FondExistant erreur){
-            System.out.print("SYKE YOU FOOL"); 
+
+        try {
+       
+            if (fondsExist(key)) {
+                throw new FondExistant();
+            } else {
+                Fonds newFond = new Fonds(amount, key);
+                this.mapFonds.put(key, newFond);
+            }
+        } catch (FondExistant erreur) {
+            System.out.print("createFonds");
         }
 
     }
@@ -97,30 +103,30 @@ public class Portefeuille {
 //l’exception FondsInexistant est générée, afficher un message d’erreur ; sinon supprimer le fonds recherché.
 //Avec les mêmes règles, implémenter aussi la méthode de suppression d’un instrument en vidant d’abord
 //sa collection de fonds.
-    
-        public void removeFonds(String key) {
-  
-        try{
-        if (searchFonds(key)==-1){
-             throw new FondsInexistants(); 
-        }
-        this.mapFonds.remove(key);
-        }catch(FondsInexistants erreur){
-            System.out.print("ZBLEU"); 
-        }
-    }
-        
-                public void removeInstrument(String key) {
-  
-        try{
-        if (searchInstrument(key)==null){
-             throw new FondsInexistants(); 
-        }
-        this.mapInstrument.get(key).valeurs.clear();
-        this.mapInstrument.remove(key);
-        }catch(FondsInexistants erreur){
-            System.out.print("INSTRU DETRUIT"); 
+
+    public void removeFonds(String key) {
+
+        try {
+            if (searchFonds(key) == -1) {
+                throw new FondsInexistants();
+            }
+            this.mapFonds.remove(key);
+        } catch (FondsInexistants erreur) {
+            System.out.print("removeFonds");
         }
     }
-    
+
+    public void removeInstrument(String key) {
+
+        try {
+            if (searchInstrument(key) == null) {
+                throw new FondsInexistants();
+            }
+            this.mapInstrument.get(key).valeurs.clear();
+            this.mapInstrument.remove(key);
+        } catch (FondsInexistants erreur) {
+            System.out.print("removeInstru");
+        }
+    }
+
 }

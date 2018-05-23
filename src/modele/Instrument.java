@@ -6,7 +6,6 @@
 package modele;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 /**
  *
@@ -22,14 +21,14 @@ public class Instrument {
         this.valeurs = new ArrayList<Fonds>();
     }
 
-        public void setKey(String _key) {
+    public void setKey(String _key) {
         this.key = _key;
     }
 
     public String getKey() {
         return this.key;
     }
-    
+
     public void setValeurs(ArrayList<Fonds> _valeurs) {
         this.valeurs = _valeurs;
     }
@@ -43,13 +42,12 @@ public class Instrument {
     
         return this.valeurs.get(index);
     }*/
-
     public void addFonds(Fonds fond) {
         this.valeurs.add(fond);
     }
-    
-    public void trierFonds(){
-      // Collections.sort(valeurs, valeurs.get(0).getAmount());
-    
+
+    public void trierFonds() {
+        // Collections.sort(valeurs, valeurs.get(0).getAmount());
+
     }
 }

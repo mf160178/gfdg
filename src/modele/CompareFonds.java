@@ -11,29 +11,26 @@ package modele;
  */
 public class CompareFonds extends Fonds implements Comparable<Fonds> {
 
-    
     public CompareFonds(double _amount, String _key) {
         super(_amount, _key);
     }
-  public CompareFonds(Fonds fond) {
+
+    public CompareFonds(Fonds fond) {
         super(fond.getAmount(), fond.getKey());
     }
 
-
-    public boolean equals (Fonds fond){
-        return this.getAmount()==fond.getAmount();
+    public boolean equals(Fonds fond) {
+        return this.getAmount() == fond.getAmount();
     }
-    
-    
+
     @Override
     public int compareTo(Fonds fond) {
-        if (this.equals(fond)){
-             return 0;
-        }
-        else if (this.getAmount() > fond.getAmount()) {
+        if (this.equals(fond)) {
+            return 0;
+        } else if (this.getAmount() > fond.getAmount()) {
             return 1;
         }
-       return -1;
+        return -1;
     }
 
 }
