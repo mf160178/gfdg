@@ -12,7 +12,7 @@ package controleur;
 public class FondExistant extends Exception {
 
     public FondExistant() {
-        System.out.println("Ce fond existe déja");
+        System.out.println("Ce fond existe déja!");
     }
 
 }

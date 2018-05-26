@@ -12,7 +12,7 @@ package controleur;
 public class FondsInexistants extends Exception {
 
     public FondsInexistants() {
-        System.out.println("Ce fond n'existe pas");
+        System.out.println("Ce fond n'existe pas!");
     }
 
 }

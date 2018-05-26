@@ -9,10 +9,8 @@ package controleur;
  *
  * @author Marine1
  */
-public class InstrumentInexistant extends Exception {
+public class ErreurRecherche extends Exception {
 
-    public InstrumentInexistant() {
-        System.out.println("Cet instrument n'existe pas!");
-
+    public ErreurRecherche() {
     }
 }

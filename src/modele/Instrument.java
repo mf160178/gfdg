@@ -49,6 +49,18 @@ public class Instrument {
 
     public void trierFonds() {
         Collections.sort(valeurs);
-
+    }
+    
+    public double sommeFonds(){
+        //Variables
+        double somme = 0;
+        
+        //Parcours de la liste
+        for(Fonds a : this.getValeurs()){
+            somme += a.getAmount();
+        }
+        
+        //Retourner la somme
+        return somme;
     }
 }
