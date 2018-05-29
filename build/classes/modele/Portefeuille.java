@@ -5,18 +5,19 @@ import controleur.ErreurRecherche;
 import controleur.FondExistant;
 import controleur.FondsInexistants;
 import controleur.InstrumentInexistant;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Classe représentant un portefeuille.
  * @author Marine Foucambert
  * @author Fiona Chuet
  */
-public class Portefeuille {
+public class Portefeuille implements Serializable {
 
+    private static final long serialVersionUID = 42L;
+    
     /**
      * HashMap des fonds du portefeuille.
      * @see modele.Fonds

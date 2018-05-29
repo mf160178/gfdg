@@ -158,6 +158,11 @@ public class TP4 {
         //Suppression des fonds et instruments correspondant aux clés rentrées
         por.removeFonds(key7);
         por.removeInstrument(key8);
+        
+        //Sérialisation 
+        System.out.println("\n***** Partie 2 - 1 : sérialisation & désérialisation *****");
+        Serial serial = new Serial(por);
+        serial.serialiser("portefeuille");
 
     }
 

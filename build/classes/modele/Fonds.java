@@ -5,8 +5,13 @@ package modele;
  * @author Marine Foucambert
  * @author Fiona Chuet
  */
-public class Fonds implements Comparable<Fonds> {
 
+import java.io.Serializable;
+
+public class Fonds implements Comparable<Fonds>, Serializable {
+
+    private static final long serialVersionUID = 42L;
+    
     /**
      * Montant du fond.
      */

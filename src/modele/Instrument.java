@@ -1,5 +1,6 @@
 package modele;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -8,8 +9,8 @@ import java.util.Collections;
  * @author Marine Foucambert
  * @author Fiona Chuet
  */
-public class Instrument {
-
+public class Instrument implements Serializable {
+ private static final long serialVersionUID = 42L;
     /**
      * Liste de fonds de l'instrument.
      * @see modele.Fonds
