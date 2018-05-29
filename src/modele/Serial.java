@@ -5,9 +5,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+
         
 /**
  * Classe pour sérialiser des objets du portefeuille.
+ * @see modele.Portefeuille
  * @author Fiona Chuet
  * @author Marine Foucambert
  */
@@ -20,35 +24,46 @@ public class Serial implements Serializable {
     /**
      * Portefeuille à sérialiser.
      */
-    private Portefeuille por;
+    private Portefeuille porToSerial;
+    private Portefeuille porDeSerial;
     
     /**
      * Constructeur surchargé. Instancie le portefeuille en attribut par copie du portefeuille en paramètre.
      * @param _por Le portfeuille à sérialiser/désérialiser.
      */
     public Serial(Portefeuille _por){
-        por = new Portefeuille();
-        por = _por;
+        porToSerial = new Portefeuille();
+        porToSerial = _por;
+        porDeSerial = null;
     }
     
     /**
-     * Sérialiser les hashmap d'un portefeuille.
-     * @param file Nom du fichier où stocker les hashmap.
+     * Getter du portefeuille désérialisé.
+     * @return Portefeuille désérialisé.
+     * @see modele.Portefeuille
      */
-    public void serialiser(String file){
+    public Portefeuille getPorDeSerial(){
+        return this.porDeSerial;
+    }
+    
+    /**
+     * Sérialiser un portefeuille.
+     * @param file_name Nom du fichier où stocker les hashmap.
+     */
+    public void serialiser(String file_name){
         try { 
             //Nom du fichier où stocker les informations
-            String name_file = file + ".serial";
+            String file = file_name + ".serial";
             
             //Ouverture d'un flux de sortie vers le fichier en question
-            FileOutputStream fos = new FileOutputStream(name_file);
+            FileOutputStream fos = new FileOutputStream(file);
             
             //Création d'un "flux objet" avec le flux fichier
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             
             try {
                 //Sérialisation : écriture de l'objet dans le flux de sortie
-                oos.writeObject(por);
+                oos.writeObject(porToSerial);
                 //On vide le tampon
                 oos.flush();
                 System.out.println("Le portefeuille a ete serialisé!");
@@ -62,6 +77,42 @@ public class Serial implements Serializable {
             }
         } catch (IOException ioe) {
             ioe.printStackTrace();
+        }
+    }
+    
+    /**
+     * Désérialiser un portefeuille.
+     * @param file_name Nom du fichier où est stocké le portefeuille.
+     */
+    public void deserialiser(String file_name){
+        try {
+             //Nom du fichier où récupérer les informations
+            String file = file_name + ".serial";
+            
+            //Ouverture d'un flux d'entrée depuis le fichier "personne.serial"
+            FileInputStream fis = new FileInputStream(file);
+            
+            //Création d'un "flux objet" avec le flux fichier
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            
+            try {
+                // désérialisation : lecture de l'objet depuis le flux d'entrée
+                porDeSerial = (Portefeuille) ois.readObject();
+            } finally {
+                //On ferme les flux
+                try {
+                    ois.close();
+                } finally {
+                    fis.close();
+                }
+            }
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        } catch (ClassNotFoundException cnfe) {
+            cnfe.printStackTrace();
+        }
+        if (porDeSerial != null) {
+            System.out.println("Le portefeuille a été désérialisé!");
         }
     }
 }

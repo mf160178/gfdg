@@ -163,6 +163,9 @@ public class TP4 {
         System.out.println("\n***** Partie 2 - 1 : sérialisation & désérialisation *****");
         Serial serial = new Serial(por);
         serial.serialiser("portefeuille");
+        serial.deserialiser("portefeuille");
+        VoirInformations vue2 = new VoirInformations(serial.getPorDeSerial()); //Test pour voir su désérialisation marche
+        vue2.displayInstrument(); //Affficher les informations relatives au portefeuille désérialisé
 
     }
 
