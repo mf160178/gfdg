@@ -7,6 +7,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modele.*;
+import vue.Menu;
 import vue.VoirInformations;
 
 /**
@@ -21,6 +22,7 @@ public class TP4 {
      * @param args The command line arguments
      */
     public static void main(String[] args) {
+        Menu menu = new Menu();
         //Variables     
         Portefeuille por = new Portefeuille(); //Création d'un portefeuille vide
         Scanner scan = new Scanner(System.in);

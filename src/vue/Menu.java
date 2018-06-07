@@ -51,12 +51,13 @@ public class Menu extends JFrame {
      */
     public Menu(){
         //Propriétés de la fenêtre
-        this.setSize(800, 800); //Redimensionner la fenêtre, autrement elle est toute petite
+        this.setSize(300, 400); //Redimensionner la fenêtre, autrement elle est toute petite
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Indique au programme de se terminer lorsqu'on ferme la fenêtre, 
                                                               //autrement le programme tourne toujours même à fenêtre fermée
         this.setResizable(false); //Autorise le redimensionnement de la fenêtre (à voir)
         this.setLocationRelativeTo(null); //Permet d'afficher la fenêtre au centre de l'écran au démarrage du programme
         this.setLayout(new BorderLayout()); 
+        this.setTitle("Menu");
         
         //Ajout du panel
         panel = new JPanel();
@@ -79,35 +80,35 @@ public class Menu extends JFrame {
         gbc.gridwidth = GridBagConstraints.REMAINDER; //Signifie que c'est le dernier élement de sa colonne
         gbc.anchor = GridBagConstraints.CENTER; //Pour centrer l'élèment dans la place qui lui est alloué
         gbc.insets = new Insets(0, 0, 20, 0); //Top Left Bottom Right (padding)
-        this.add(this.ajout, gbc); //Ajouter au panel
+        this.panel.add(this.ajout, gbc); //Ajouter au panel
         
         //Bouton supprimer
         gbc.gridy = 1; //Emplacement (0,0) de la grille virtuelle (tout en haut au milieu)
         gbc.gridwidth = GridBagConstraints.REMAINDER; //Signifie que c'est le dernier élement de sa colonne
         gbc.anchor = GridBagConstraints.CENTER; //Pour centrer l'élèment dans la place qui lui est alloué
         gbc.insets = new Insets(0, 0, 20, 0); //Top Left Bottom Right (padding)
-        this.add(this.supprimer, gbc); //Ajouter au panel
+        this.panel.add(this.supprimer, gbc); //Ajouter au panel
         
         //Bouton rechercher
         gbc.gridy = 2; //Emplacement (0,0) de la grille virtuelle (tout en haut au milieu)
         gbc.gridwidth = GridBagConstraints.REMAINDER; //Signifie que c'est le dernier élement de sa colonne
         gbc.anchor = GridBagConstraints.CENTER; //Pour centrer l'élèment dans la place qui lui est alloué
         gbc.insets = new Insets(0, 0, 20, 0); //Top Left Bottom Right (padding)
-        this.add(this.recherche, gbc); //Ajouter au panel
+        this.panel.add(this.recherche, gbc); //Ajouter au panel
         
         //Bouton serial
         gbc.gridy = 3; //Emplacement (0,0) de la grille virtuelle (tout en haut au milieu)
         gbc.gridwidth = GridBagConstraints.REMAINDER; //Signifie que c'est le dernier élement de sa colonne
         gbc.anchor = GridBagConstraints.CENTER; //Pour centrer l'élèment dans la place qui lui est alloué
         gbc.insets = new Insets(0, 0, 20, 0); //Top Left Bottom Right (padding)
-        this.add(this.serial, gbc); //Ajouter au panel
+        this.panel.add(this.serial, gbc); //Ajouter au panel
         
         //Bouton deserial
         gbc.gridy = 4; //Emplacement (0,0) de la grille virtuelle (tout en haut au milieu)
         gbc.gridwidth = GridBagConstraints.REMAINDER; //Signifie que c'est le dernier élement de sa colonne
         gbc.anchor = GridBagConstraints.CENTER; //Pour centrer l'élèment dans la place qui lui est alloué
         gbc.insets = new Insets(0, 0, 20, 0); //Top Left Bottom Right (padding)
-        this.add(this.deserial, gbc); //Ajouter au panel
+        this.panel.add(this.deserial, gbc); //Ajouter au panel
         
         //Bouton statistiques
         gbc.gridy = 5; //Emplacement (0,0) de la grille virtuelle (tout en haut au milieu)
@@ -115,7 +116,7 @@ public class Menu extends JFrame {
         gbc.gridheight = GridBagConstraints.REMAINDER; //Signifie que c'est le dernier élement de sa colonne
         gbc.anchor = GridBagConstraints.CENTER; //Pour centrer l'élèment dans la place qui lui est alloué
         gbc.insets = new Insets(0, 0, 20, 0); //Top Left Bottom Right (padding)
-        this.add(this.stats, gbc); //Ajouter au panel
+        this.panel.add(this.stats, gbc); //Ajouter au panel
         
         //Rendre visible la fenêtre
         this.setVisible(true);
