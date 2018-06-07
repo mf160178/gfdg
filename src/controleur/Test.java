@@ -12,6 +12,7 @@ import modele.Fonds;
 import modele.Instrument;
 import modele.Portefeuille;
 import modele.Serial;
+import vue.Ajout;
 import vue.Menu;
 import vue.VoirInformations;
 
@@ -22,5 +23,6 @@ import vue.VoirInformations;
 public class Test {
     public static void main(String[] args) {
         Menu menu = new Menu();
+        Ajout pet= new Ajout();
     }
 }
