@@ -1,14 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package vue;
 
+import javax.swing.JFrame;
+
 /**
- *
- * @author FionaC
+ * @author Marine Foucambert
+ * @author Fiona Chuet
  */
-public class Menu {
+public class Menu extends JFrame {
+    
+    /**
+     * Constructeur par défaut.
+     */
+    public Menu (){
+        
+    }
     
 }
