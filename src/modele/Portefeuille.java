@@ -82,6 +82,16 @@ public class Portefeuille implements Serializable {
     }
 
     /**
+     * Détermine si un instrument donné existe dans la hashmap d'instruments.
+     * @param key La clé de l'instrument à rechercher.
+     * @return True si l'instrument existe, false si le fond n'existe pas.
+     */
+    public boolean instrumentExist(String key) {
+        return this.mapInstrument.get(key) != null;
+    }
+
+    
+    /**
      * Recherche un fond dans la map des fonds.
      * @param key La clé du fond à rechercher.
      * @return Le montant du fond trouvé.
