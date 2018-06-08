@@ -28,9 +28,9 @@ public class Ajout {
         wallet = _wallet;
         nomDialog = new JOptionPane();
         affichage = new JOptionPane();
-
+    
         choix = JOptionPane.showOptionDialog(null, "Ajouter quel element?", "Ajout",
-                JOptionPane.QUESTION_MESSAGE, 0, null, buttons, buttons[1]);
+                JOptionPane.PLAIN_MESSAGE, 0, null, buttons, buttons[1]);
 
         System.out.println(choix);
 
@@ -48,19 +48,22 @@ public class Ajout {
 
     public void ajoutFond() {
 
+        boolean condition = false;
+        do{
         nom = nomDialog.showInputDialog(null, "Entrez la clé", "Clé fond", JOptionPane.QUESTION_MESSAGE);
-        if (fondExist(nom)) {
-
+        if (!wallet.fondsExist(nom)) {
+            condition=true;
+            do {
+                String value = valeurDialog.showInputDialog(null, "Entrez la valeur", "Valeur fond", JOptionPane.QUESTION_MESSAGE);
+                if (!value.isEmpty()) {
+                    valeur = Double.valueOf(value);
+                }
+            } while (valeur < 0);
+        } else {
+            JOptionPane.showMessageDialog(null,"Ce fond existe deja.","Clé invalide",JOptionPane.ERROR_MESSAGE);
         }
-        //verifier si deja existant
-
-        do {
-            String value = valeurDialog.showInputDialog(null, "Entrez la valeur", "Valeur fond", JOptionPane.QUESTION_MESSAGE);
-            if (!value.isEmpty()) {
-                valeur = Double.valueOf(value);
-            }
-        } while (valeur < 0);
-
+        
+        }while(!condition);
         affichage.showMessageDialog(null, "La clé est " + nom + "\nValeur: " + valeur, "Infos de l'ajout", JOptionPane.INFORMATION_MESSAGE);
 
     }

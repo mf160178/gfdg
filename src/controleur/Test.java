@@ -22,7 +22,9 @@ import vue.VoirInformations;
  */
 public class Test {
     public static void main(String[] args) {
+        Portefeuille portefeuille = new Portefeuille();
         Menu menu = new Menu();
-        Ajout pet= new Ajout();
+        Ajout pet= new Ajout(portefeuille);
+        Ajout petrfe= new Ajout(portefeuille);
     }
 }
