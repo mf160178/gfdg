@@ -82,7 +82,7 @@ public class Test implements ActionListener {
         //Statistiques
         if(e.getSource() == index.getStats())
         {
-            
+            Statistiques stats = new Statistiques(por);
         }
     }
     

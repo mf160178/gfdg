@@ -58,14 +58,17 @@ public class VoirInformations {
     /**
      * Méthode pour afficher les informations de tous les instruments du
      * portefeuille.
+     * @return Une string contenant les résultats.
      * Source: https://openclassrooms.com/forum/sujet/parcourir-une-hashmap-82775
      */
-    public void displayInstrument() {
+    public String displayInstrument() {
         //Variables
         Iterator i = this.getPortefeuille().getMapInstrument().keySet().iterator(); //Création d'un itérateur sur la map d'instrument
         String key = null; //Clé d'un instrument dans la HashMap du portefeuille
         int nombre = 0; //Nombre total de fonds dans un instrument
         double somme = 0; //Somme des fonds d'un instrument
+        String s;
+        StringBuilder results = new StringBuilder();
 
         //Parcours de la HashMap
         while (i.hasNext()) {
@@ -75,8 +78,15 @@ public class VoirInformations {
             somme = this.getPortefeuille().getMapInstrument().get(key).sommeFonds();
             
             //Affichage des informations
-            System.out.println("Clé de l'instrument: " + key + "\nNombre total de fonds: " + nombre + "\nSomme des fonds: " + somme + "\n"); 
+            s = "Clé de l'instrument: " + key + "\nNombre total de fonds: " + nombre + "\nSomme des fonds: " + somme;
+            System.out.println(s + "\n"); 
+            
+            //Ajouter au StringBuilder
+            results.append(s).append("\n\n");
         }
+        
+        //Retourner l'itérateur
+        return results.toString();
     }
 
     /**
