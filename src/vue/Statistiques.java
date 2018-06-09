@@ -131,6 +131,7 @@ public class Statistiques {
      */
     public void viewDisplayFondsInstrument(){
         
+        
     }
     
     /**

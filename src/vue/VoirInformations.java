@@ -42,17 +42,24 @@ public class VoirInformations {
      * Affiche les fonds d'un instrument du portefeuille
      * @param keyIns La clé de l'instrument
      */
-    public void displayFondsInstrument(String keyIns){
+    public String displayFondsInstrument(String keyIns){
+        StringBuilder results = new StringBuilder();
         try {
             this.getPortefeuille().searchInstrument(keyIns);
             Instrument ins = this.getPortefeuille().getMapInstrument().get(keyIns);
             System.out.println("Liste des fonds de l'instrument " + keyIns + ":");
+            String s;
             for(Fonds a : ins.getValeurs()){
-                System.out.println("Clé: " + a.getKey() + "; montant: " + a.getAmount());
+                s = "Clé: " + a.getKey() + "; montant: " + a.getAmount();
+                System.out.println(s);
+                results.append(s).append("\n");
             }
+            
         } catch (InstrumentInexistant ex) {
             System.out.println("displayFondsIntrument: impossiblme d'afficher les fonds d'un instrument inexistant!");
         }
+        //Retourner la String
+        return results.toString();
     }
     
     /**
@@ -85,7 +92,7 @@ public class VoirInformations {
             results.append(s).append("\n\n");
         }
         
-        //Retourner l'itérateur
+        //Retourner la String
         return results.toString();
     }
 
@@ -93,7 +100,7 @@ public class VoirInformations {
      * Méthode affichant le pourcentage de chaque instrument pour un fond donné
      * @param key Clé du fond
      */
-    public void displayPourcentage(String key) {
+    public String displayPourcentage(String key) {
         //Variables
         double amount = 0;
         
@@ -109,6 +116,8 @@ public class VoirInformations {
         String key_inst = null;
         double somme = 0; //Somme des fonds d'un instrument
         double pourcentage = 0; //Pourcentage du fond
+        String s;
+        StringBuilder results = new StringBuilder();
 
         //Parcours de la HashMap
         while (i.hasNext()) {
@@ -118,8 +127,15 @@ public class VoirInformations {
             pourcentage = (amount/somme) * 100;
             
             //Affichage des informations
-            System.out.println("Clé de l'instrument: " + key_inst + "\n% par rapport au fond " + key + "(" + amount + "): " + pourcentage + "\n"); 
+            s = "Clé de l'instrument: " + key_inst + "\n% par rapport au fond " + key + "(" + amount + "): " + pourcentage;
+            System.out.println(s + "\n"); 
+            
+            //Ajouter au StringBuilder
+            results.append(s).append("\n\n");
         }
+        
+        //Retourner la String
+        return results.toString();
     }
 
 }

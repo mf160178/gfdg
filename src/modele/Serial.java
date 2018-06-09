@@ -84,7 +84,7 @@ public class Serial implements Serializable {
      * Désérialiser un portefeuille.
      * @param file_name Nom du fichier où est stocké le portefeuille.
      */
-    public void deserialiser(String file_name){
+    public Portefeuille deserialiser(String file_name){
         try {
              //Nom du fichier où récupérer les informations
             String file = file_name + ".serial";
@@ -113,6 +113,8 @@ public class Serial implements Serializable {
         }
         if (porDeSerial != null) {
             System.out.println("Le portefeuille a été désérialisé!");
+            
         }
+        return porDeSerial;
     }
 }
