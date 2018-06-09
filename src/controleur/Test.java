@@ -77,13 +77,26 @@ public class Test implements ActionListener {
         }
 
         //Sérialisation
+<<<<<<< HEAD
         if (e.getSource() == index.getSerial()) {
 
+=======
+        if(e.getSource() == index.getSerial())
+        {
+            Serialisation serial = new Serialisation(por);
+>>>>>>> 8d063842a1e000e77775ac1aee64ed27f5837a00
         }
 
         //Dé-sérialisation
+<<<<<<< HEAD
         if (e.getSource() == index.getDeserial()) {
 
+=======
+        if(e.getSource() == index.getDeserial())
+        {
+            Deserialisation deserial = new Deserialisation(por);
+            por = deserial.getDeserial();
+>>>>>>> 8d063842a1e000e77775ac1aee64ed27f5837a00
         }
 
         //Statistiques

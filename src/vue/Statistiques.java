@@ -127,8 +127,14 @@ public class Statistiques {
      * Méthode faisant l'interface entre l'utilisateur et le programme pour
      * afficher les fonds d'un instrument données.
      */
+<<<<<<< HEAD
     public void viewDisplayFondsInstrument() {
 
+=======
+    public void viewDisplayFondsInstrument(){
+        
+        
+>>>>>>> 8d063842a1e000e77775ac1aee64ed27f5837a00
     }
 
     /**
