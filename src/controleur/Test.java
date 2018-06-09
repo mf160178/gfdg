@@ -5,26 +5,88 @@
  */
 package controleur;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-import modele.CompareFonds;
-import modele.Fonds;
-import modele.Instrument;
-import modele.Portefeuille;
-import modele.Serial;
-import vue.Ajout;
-import vue.Menu;
-import vue.VoirInformations;
+//Librairies
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import modele.*;
+import vue.*;
 
 /**
- *
- * @author FionaC
+ * Classe pour tester le programme en graphique.
+ * @author Marine Foucambert
+ * @author Fiona Chuet
  */
-public class Test {
+public class Test implements ActionListener {
+    
+    /**
+     * Portefeuille.
+     */
+    public static Portefeuille por;
+    
+    /**
+     * Menu.
+     */
+    public static Menu index;
+    
+    /**
+     * Constructeur par défaut.
+     */
+    public Test (){
+        //Instanciation des attributs
+        por = new Portefeuille();
+        index = new Menu();
+        
+        
+        //Ajout des actions listener
+        index.getAjout().addActionListener(this);
+        index.getSupp().addActionListener(this);
+        index.getRecherche().addActionListener(this);
+        index.getSerial().addActionListener(this);
+        index.getDeserial().addActionListener(this);
+        index.getStats().addActionListener(this);
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        //Ajout
+        if(e.getSource() == index.getAjout())
+        {
+            Ajout a = new Ajout(por);
+        }
+        
+        //Suppression
+        if(e.getSource() == index.getSupp())
+        {
+            
+        }
+        
+        //Recherche
+        if(e.getSource() == index.getRecherche())
+        {
+
+        }
+        
+        //Sérialisation
+        if(e.getSource() == index.getSerial())
+        {
+
+        }
+        
+        //Dé-sérialisation
+        if(e.getSource() == index.getDeserial())
+        {
+            
+        }
+        
+        //Statistiques
+        if(e.getSource() == index.getStats())
+        {
+            
+        }
+    }
+    
     public static void main(String[] args) {
-        Portefeuille portefeuille = new Portefeuille();
-        Menu menu = new Menu();
-        Ajout pet= new Ajout(portefeuille);
-        Ajout petrfe= new Ajout(portefeuille);
+        Test t = new Test();
     }
 }
