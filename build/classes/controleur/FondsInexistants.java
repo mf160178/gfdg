@@ -2,6 +2,7 @@ package controleur;
 
 /**
  * Classe représentant une erreur lors de la recherche d'un fond inexistant.
+ *
  * @see modele.Portefeuille
  * @author Marine Foucambert
  * @author Fiona Chuet

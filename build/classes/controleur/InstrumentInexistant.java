@@ -1,7 +1,9 @@
 package controleur;
 
 /**
- * Classe représentant une erreur lors de la recherche d'un instrument inexistant.
+ * Classe représentant une erreur lors de la recherche d'un instrument
+ * inexistant.
+ *
  * @see modele.Portefeuille
  * @author Marine Foucambert
  * @author Fiona Chuet

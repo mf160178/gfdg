@@ -40,26 +40,28 @@ public class VoirInformations {
 
     /**
      * Affiche les fonds d'un instrument du portefeuille
+     *
      * @param keyIns La clé de l'instrument
      */
-    public void displayFondsInstrument(String keyIns){
+    public void displayFondsInstrument(String keyIns) {
         try {
             this.getPortefeuille().searchInstrument(keyIns);
             Instrument ins = this.getPortefeuille().getMapInstrument().get(keyIns);
             System.out.println("Liste des fonds de l'instrument " + keyIns + ":");
-            for(Fonds a : ins.getValeurs()){
+            for (Fonds a : ins.getValeurs()) {
                 System.out.println("Clé: " + a.getKey() + "; montant: " + a.getAmount());
             }
         } catch (InstrumentInexistant ex) {
             System.out.println("displayFondsIntrument: impossiblme d'afficher les fonds d'un instrument inexistant!");
         }
     }
-    
+
     /**
      * Méthode pour afficher les informations de tous les instruments du
      * portefeuille.
-     * @return Une string contenant les résultats.
-     * Source: https://openclassrooms.com/forum/sujet/parcourir-une-hashmap-82775
+     *
+     * @return Une string contenant les résultats. Source:
+     * https://openclassrooms.com/forum/sujet/parcourir-une-hashmap-82775
      */
     public String displayInstrument() {
         //Variables
@@ -73,37 +75,38 @@ public class VoirInformations {
         //Parcours de la HashMap
         while (i.hasNext()) {
             //Récupération des informations relatives à un instrument
-            key = (String) i.next(); 
+            key = (String) i.next();
             nombre = this.getPortefeuille().getMapInstrument().get(key).getValeurs().size();
             somme = this.getPortefeuille().getMapInstrument().get(key).sommeFonds();
-            
+
             //Affichage des informations
             s = "Clé de l'instrument: " + key + "\nNombre total de fonds: " + nombre + "\nSomme des fonds: " + somme;
-            System.out.println(s + "\n"); 
-            
+            System.out.println(s + "\n");
+
             //Ajouter au StringBuilder
             results.append(s).append("\n\n");
         }
-        
+
         //Retourner l'itérateur
         return results.toString();
     }
 
     /**
      * Méthode affichant le pourcentage de chaque instrument pour un fond donné
+     *
      * @param key Clé du fond
      */
     public void displayPourcentage(String key) {
         //Variables
         double amount = 0;
-        
+
         try {
             //Récupérer la valeur du fond recherché
             amount = this.getPortefeuille().searchFonds(key);
         } catch (FondsInexistants ex) {
             System.out.println("Impossible d'afficher la valeur d'un fond inexistant!");
         }
-        
+
         //Pour chaque instrument, on affiche le poucentage de la totalité de ses fonds par rapport au fond donné
         Iterator i = this.getPortefeuille().getMapInstrument().keySet().iterator(); //Création d'un itérateur sur la map d'instrument
         String key_inst = null;
@@ -113,12 +116,12 @@ public class VoirInformations {
         //Parcours de la HashMap
         while (i.hasNext()) {
             //Récupération des informations relatives à un instrument
-            key_inst = (String) i.next(); 
+            key_inst = (String) i.next();
             somme = this.getPortefeuille().getMapInstrument().get(key_inst).sommeFonds();
-            pourcentage = (amount/somme) * 100;
-            
+            pourcentage = (amount / somme) * 100;
+
             //Affichage des informations
-            System.out.println("Clé de l'instrument: " + key_inst + "\n% par rapport au fond " + key + "(" + amount + "): " + pourcentage + "\n"); 
+            System.out.println("Clé de l'instrument: " + key_inst + "\n% par rapport au fond " + key + "(" + amount + "): " + pourcentage + "\n");
         }
     }
 

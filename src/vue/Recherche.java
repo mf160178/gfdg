@@ -5,7 +5,10 @@
  */
 package vue;
 
+import controleur.FondsInexistants;
+import controleur.InstrumentInexistant;
 import javax.swing.JOptionPane;
+import modele.Fonds;
 import modele.Instrument;
 import modele.Portefeuille;
 
@@ -24,7 +27,7 @@ public class Recherche {
     double valeur;
     Portefeuille wallet;
 
-    public Recherche(Portefeuille _wallet) {
+    public Recherche(Portefeuille _wallet) throws InstrumentInexistant, FondsInexistants {
 
         wallet = _wallet;
         nomDialog = new JOptionPane();
@@ -45,7 +48,7 @@ public class Recherche {
 
             if (wallet.getMapInstrument().size() != 0) {
 
-                ajoutFond();
+                rechercheFond();
             } else {
                 JOptionPane.showMessageDialog(null, "Ce portefeuille n'a pas d'instrument.", "Instrument necessaire", JOptionPane.ERROR_MESSAGE);
 
@@ -54,7 +57,7 @@ public class Recherche {
         } else if (choix == 1) {
             if (wallet.getMapInstrument().size() != 0) {
 
-                ajoutInstrument();
+                rechercheInstrument();
             } else {
                 JOptionPane.showMessageDialog(null, "Ce portefeuille n'a pas d'instrument.", "Instrument necessaire", JOptionPane.ERROR_MESSAGE);
 
@@ -64,38 +67,38 @@ public class Recherche {
 
     }
 
-    public void ajoutFond() {
+    public void rechercheFond() throws FondsInexistants {
 
         boolean condition = false;
         do {
             nom = nomDialog.showInputDialog(null, "Entrez la clé", "Clé fond", JOptionPane.QUESTION_MESSAGE);
             if (wallet.fondsExist(nom)) {
                 condition = true;
-                
-
-                //supprimer le fond au porte feuille
+                Fonds searched = wallet.getFond(nom);
+                affichage.showMessageDialog(null, "Fond trouvé: \nClé: " + searched.getKey()+"\nValeur: "+ searched.getAmount(), "Fond", JOptionPane.INFORMATION_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, "Ce fond n'existe pas.", "Clé invalide", JOptionPane.ERROR_MESSAGE);
             }
 
         } while (!condition);
-        affichage.showMessageDialog(null, "Le fond a été supprimé", "Suppression", JOptionPane.INFORMATION_MESSAGE);
 
     }
 
-    public void ajoutInstrument() {
+    public void rechercheInstrument() throws InstrumentInexistant {
         boolean condition = false;
         do {
             nom = nomDialog.showInputDialog(null, "Entrez la clé", "Clé instrument", JOptionPane.QUESTION_MESSAGE);
             if (wallet.instrumentExist(nom)) {
                 condition = true;
-                
+
+                Instrument searched = wallet.getInstrument(nom);
+                affichage.showMessageDialog(null, "Instrument trouvé: \nClé: " + searched.getKey(), "Instrument", JOptionPane.INFORMATION_MESSAGE);
+
             } else {
                 JOptionPane.showMessageDialog(null, "Cet instrument n'existe pas.", "Clé invalide", JOptionPane.ERROR_MESSAGE);
             }
 
         } while (!condition);
-        affichage.showMessageDialog(null, "L'instrument a été supprimé", "Suppression", JOptionPane.INFORMATION_MESSAGE);
 
     }
 }

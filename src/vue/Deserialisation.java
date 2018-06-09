@@ -10,5 +10,5 @@ package vue;
  * @author FionaC
  */
 public class Deserialisation {
-    
+
 }

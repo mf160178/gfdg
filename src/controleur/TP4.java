@@ -12,6 +12,7 @@ import vue.VoirInformations;
 
 /**
  * Classe test.
+ *
  * @author Marine Foucambert
  * @author Fiona Chuet
  */
@@ -19,6 +20,7 @@ public class TP4 {
 
     /**
      * Méthode du main.
+     *
      * @param args The command line arguments
      */
 //    public static void main(String[] args) {
@@ -169,5 +171,4 @@ public class TP4 {
 //        vue2.displayInstrument(); //Affficher les informations relatives au portefeuille désérialisé
 //
 //    }
-
 }

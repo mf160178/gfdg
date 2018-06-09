@@ -2,6 +2,7 @@ package controleur;
 
 /**
  * Classe représentant une erreur lors de la création d'un fond.
+ *
  * @see modele.Portefeuille
  * @author Marine Foucambert
  * @author Fiona Chuet

@@ -11,21 +11,24 @@ import java.util.HashMap;
 
 /**
  * Classe représentant un portefeuille.
+ *
  * @author Marine Foucambert
  * @author Fiona Chuet
  */
 public class Portefeuille implements Serializable {
 
     private static final long serialVersionUID = 42L;
-    
+
     /**
      * HashMap des fonds du portefeuille.
+     *
      * @see modele.Fonds
      */
     HashMap<String, Fonds> mapFonds;
-    
+
     /**
      * HashMap des instruments du portfeuille.
+     *
      * @see modele.Instrument
      */
     HashMap<String, Instrument> mapInstrument;
@@ -40,6 +43,7 @@ public class Portefeuille implements Serializable {
 
     /**
      * Getter de la map des fonds.
+     *
      * @return La hashmap de fonds.
      */
     public HashMap<String, Fonds> getMapFonds() {
@@ -48,6 +52,7 @@ public class Portefeuille implements Serializable {
 
     /**
      * Getter de la map des instruments.
+     *
      * @return La hashmap d'intruments.
      */
     public HashMap<String, Instrument> getMapInstrument() {
@@ -56,6 +61,7 @@ public class Portefeuille implements Serializable {
 
     /**
      * Setter de la map des fonds par clonage de la map en paramètre.
+     *
      * @param _mapfonds La nouvelle map de fonds.
      */
     public void setMapFonds(HashMap<String, Fonds> _mapfonds) {
@@ -65,6 +71,7 @@ public class Portefeuille implements Serializable {
 
     /**
      * Setter de la map des intruments par clonage de la map en paramètre.
+     *
      * @param _mapinstrument La nouvelle map d'instruments.
      */
     public void setMapInstrument(HashMap<String, Instrument> _mapinstrument) {
@@ -74,6 +81,7 @@ public class Portefeuille implements Serializable {
 
     /**
      * Détermine si un fond donné existe dans la hashmap de fonds.
+     *
      * @param key La clé du fond à rechercher.
      * @return True si le fond existe, false si le fond n'existe pas.
      */
@@ -83,6 +91,7 @@ public class Portefeuille implements Serializable {
 
     /**
      * Recherche un fond dans la map des fonds.
+     *
      * @param key La clé du fond à rechercher.
      * @return Le montant du fond trouvé.
      * @throws FondsInexistants Si le fond n'a pas été trouvé.
@@ -103,6 +112,7 @@ public class Portefeuille implements Serializable {
 
     /**
      * Recherche un instrument dans la map des instruments.
+     *
      * @param key La clé de l'instrument à rechercher.
      * @return La liste de fonds de l'instrument trouvé.
      * @throws InstrumentInexistant Si l'instrument n'a pas été trouvé.
@@ -125,6 +135,7 @@ public class Portefeuille implements Serializable {
 
     /**
      * Créer un fond et l'ajoute à la hashmap des fonds du portefeuille.
+     *
      * @param key La clé du fond à créer.
      * @param amount Le montant du fond à créer.
      * @see modele.Fonds
@@ -144,19 +155,21 @@ public class Portefeuille implements Serializable {
             System.out.println("createFonds: impossible d'ajouter un fond déjà existant!");
         }
     }
-    
+
     /**
      * Ajoute un nouvel instrument à la hashmap des intruments.
+     *
      * @param instrument L'instrument à ajouter.
      * @see modele.Instrument
      */
-    public void addInstrument(Instrument instrument){
+    public void addInstrument(Instrument instrument) {
         this.mapInstrument.put(instrument.getKey(), instrument);
         System.out.println("Nouvel instrument ajouté! Clé: " + instrument.getKey() + "\n");
     }
 
     /**
      * Ajoute un fond à un instrument du portefeuille.
+     *
      * @param keyIns La clé de l'instrument auquel on souhaite ajouter le fond.
      * @param fond Le fond à ajouter à l'instrument.
      */
@@ -176,6 +189,7 @@ public class Portefeuille implements Serializable {
 
     /**
      * Supprime un fond de la hashmap des fonds du portefeuille.
+     *
      * @param key La clé du fond à supprimer.
      */
     public void removeFonds(String key) {
@@ -193,6 +207,7 @@ public class Portefeuille implements Serializable {
 
     /**
      * Supprime un instrument de la hashmap des intruments du portefeuille.
+     *
      * @param key La clé de l'instrument à supprimer.
      */
     public void removeInstrument(String key) {
