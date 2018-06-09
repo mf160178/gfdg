@@ -27,22 +27,58 @@ import modele.*;
  */
 public class Statistiques {
 
+    /**
+     * Dialogue pour obtenir le nom d'un fond ou instrument.
+     */
     private JOptionPane nomDialog;
-    private JOptionPane valeurDialog;
+    
+    /**
+     * Dialogue pour afficher le résultat du poucentage.
+     */
     private JOptionPane affichage;
+    
+    /**
+     * Nom de l'instrument ou du fond en question.
+     */
     private String nom;
-    private double valeur;
-
+    
+    /**
+     * Options disponibles.
+     */
     private String[] buttons = {"Instruments du portefeuille", "Fonds d'un instruments", "Pourcentage d'un instrument par rapport à un fond"};
+    
+    /**
+     * Choix de l'utilisateur.
+     */
     private int choix;
+    
+    /**
+     * Portefeuille.
+     */
     private Portefeuille wallet;
+    
+    /**
+     * Affichage des résultats sous forme de liste.
+     */
     private JTextPane stats;
+    
+    /**
+     * Fenêtre des résultats.
+     */
     private JFrame f;
+    
+    /**
+     * Informations relatives aux portefeuille.
+     */
     private VoirInformations vue;
+    
+    /**
+     * Style du texte des résultats.
+     */
     private SimpleAttributeSet style_normal;
 
     /**
-     * Constructeur par défaut.
+     * Constructeur surchargé. Copie le portefeuille en paramètre.
      */
     public Statistiques(Portefeuille _wallet) {
         //Récupérer le portefeuille par copie

@@ -27,7 +27,6 @@ public class VoirInformations {
 
     /**
      * Constructeur par défaut. Copie le portefeuille en paramètre.
-     *
      * @param _por Portefeuille dont on veut afficher les informations
      */
     public VoirInformations(Portefeuille _por) {
@@ -40,7 +39,7 @@ public class VoirInformations {
 
     /**
      * Affiche les fonds d'un instrument du portefeuille
-     *
+     * @return Résultats de l'opération.
      * @param keyIns La clé de l'instrument
      */
     public String displayFondsInstrument(String keyIns){
@@ -66,7 +65,6 @@ public class VoirInformations {
     /**
      * Méthode pour afficher les informations de tous les instruments du
      * portefeuille.
-     *
      * @return Une string contenant les résultats. Source:
      * https://openclassrooms.com/forum/sujet/parcourir-une-hashmap-82775
      */
@@ -99,7 +97,7 @@ public class VoirInformations {
 
     /**
      * Méthode affichant le pourcentage de chaque instrument pour un fond donné
-     *
+     * @return Rsultats de l'opération.
      * @param key Clé du fond
      */
     public String displayPourcentage(String key) {
