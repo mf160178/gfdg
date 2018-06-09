@@ -3,19 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Fiona/Mes_Documents/ECE/ING3/Java/TP4/gfdg/src/modele/Portefeuille.java</file>
             <file>file:/D:/Fiona/Mes_Documents/ECE/ING3/Java/TP4/gfdg/src/controleur/Test.java</file>
-            <file>file:/D:/Fiona/Mes_Documents/ECE/ING3/Java/TP4/gfdg/src/vue/Deserialisation.java</file>
-            <file>file:/D:/Fiona/Mes_Documents/ECE/ING3/Java/TP4/gfdg/src/vue/Statistiques.java</file>
-            <file>file:/D:/Fiona/Mes_Documents/ECE/ING3/Java/TP4/gfdg/src/vue/Serialisation.java</file>
-            <file>file:/D:/Fiona/Mes_Documents/ECE/ING3/Java/TP4/gfdg/src/modele/Instrument.java</file>
-            <file>file:/D:/Fiona/Mes_Documents/ECE/ING3/Java/TP4/gfdg/src/modele/Fonds.java</file>
-            <file>file:/D:/Fiona/Mes_Documents/ECE/ING3/Java/TP4/gfdg/src/vue/Recherche.java</file>
+            <file>file:/D:/Fiona/Mes_Documents/ECE/ING3/Java/TP4/gfdg/src/vue/VoirInformations.java</file>
             <file>file:/D:/Fiona/Mes_Documents/ECE/ING3/Java/TP4/gfdg/src/vue/Ajout.java</file>
-            <file>file:/D:/Fiona/Mes_Documents/ECE/ING3/Java/TP4/gfdg/src/controleur/TP4.java</file>
             <file>file:/D:/Fiona/Mes_Documents/ECE/ING3/Java/TP4/gfdg/src/vue/Menu.java</file>
             <file>file:/D:/Fiona/Mes_Documents/ECE/ING3/Java/TP4/gfdg/src/vue/Suppression.java</file>
-            <file>file:/D:/Fiona/Mes_Documents/ECE/ING3/Java/TP4/gfdg/src/modele/CompareFonds.java</file>
+            <file>file:/D:/Fiona/Mes_Documents/ECE/ING3/Java/TP4/gfdg/src/vue/Statistiques.java</file>
         </group>
     </open-files>
 </project-private>

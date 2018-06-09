@@ -67,7 +67,7 @@ public class Statistiques {
             //Style du texte
             style_normal = new SimpleAttributeSet();
             StyleConstants.setFontFamily(style_normal, "Calibri");
-            StyleConstants.setFontSize(style_normal, 12);
+            StyleConstants.setFontSize(style_normal, 16);
 
             //Choix de l'utilisateur
             choix = JOptionPane.showOptionDialog(null, "Que souhaitez-vous visualiser?", "Statistiques",
@@ -125,16 +125,47 @@ public class Statistiques {
 
     /**
      * Méthode faisant l'interface entre l'utilisateur et le programme pour
-     * afficher les fonds d'un instrument données.
+     * afficher les fonds d'un instrument donné.
      */
-<<<<<<< HEAD
     public void viewDisplayFondsInstrument() {
+        //Booléen de la conditon
+        boolean condition = false;
+        
+        //On vérifie que la clé entrée est valide
+        do {
+            nom = nomDialog.showInputDialog(null, "Entrez la clé", "Clé instrument", JOptionPane.QUESTION_MESSAGE);
+            if (!wallet.instrumentExist(nom)) {
+                condition = true;
+                JOptionPane.showMessageDialog(null, "Cet instrument n'existe pas.", "Clé invalide", JOptionPane.ERROR_MESSAGE);
+            } 
+        } while (condition);
+        
+        //Récupérer les résultats
+        String results = vue.displayFondsInstrument(nom);
 
-=======
-    public void viewDisplayFondsInstrument(){
+        //Ajouter le texte au JTextPane
+        try {
+            //Récupérer le style du document
+            StyledDocument doc = stats.getStyledDocument();
+
+            /*
+            * Insertion d'une chaine de caractères dans le document
+            * insertString : position de départ dans le document (doc.getLength ajoute à la fin texte à ajouter style pour le texte à ajouter
+             */
+            doc.insertString(doc.getLength(), results, style_normal);
+
+        } catch (BadLocationException e) {
+            e.printStackTrace();
+        }
+
+        //Ajouter l'élement à un scroll
+        JScrollPane scroll = new JScrollPane();
+        scroll.getViewport().add(stats, null);
+
+        //Ajouter l'élement à la frame
+        f.add(scroll);
+        f.setVisible(true);
         
-        
->>>>>>> 8d063842a1e000e77775ac1aee64ed27f5837a00
     }
 
     /**
@@ -142,6 +173,23 @@ public class Statistiques {
      * afficher le pourventage d'un instrument par rapport à un fond.
      */
     public void viewDisplayPourcentage() {
+        //Booléen de la conditon
+        boolean condition = false;
+        
+        //On vérifie que la clé entrée est valide
+        do {
+            nom = nomDialog.showInputDialog(null, "Entrez la clé", "Clé d'un fond", JOptionPane.QUESTION_MESSAGE);
+            if (!wallet.fondsExist(nom)) {
+                condition = true;
+                JOptionPane.showMessageDialog(null, "Ce fond n'existe pas.", "Clé invalide", JOptionPane.ERROR_MESSAGE);
+            } 
+        } while (condition);
+        
+        //Récupérer les résultats
+        String results = vue.displayPourcentage(nom);
 
+        //Afficher le résultat
+        affichage.showMessageDialog(null, results, "Résultat du pourcentage", JOptionPane.INFORMATION_MESSAGE);
+        
     }
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package vue;
 
 import javax.swing.JOptionPane;
@@ -11,13 +6,11 @@ import modele.Serial;
 
 /**
  *
+ * @author FionaC
  * @author Marine Foucambert
  * @author Fiona Chuet
  */
 public class Deserialisation {
-<<<<<<< HEAD
-
-=======
         /**
      * Portefeuille à sérialiser.
      */
@@ -53,5 +46,4 @@ public class Deserialisation {
         //Retourner le portefeuille désérialisé
         return por;
     }
->>>>>>> 8d063842a1e000e77775ac1aee64ed27f5837a00
 }

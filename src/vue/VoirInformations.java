@@ -43,30 +43,21 @@ public class VoirInformations {
      *
      * @param keyIns La clé de l'instrument
      */
-<<<<<<< HEAD
-    public void displayFondsInstrument(String keyIns) {
-=======
     public String displayFondsInstrument(String keyIns){
         StringBuilder results = new StringBuilder();
->>>>>>> 8d063842a1e000e77775ac1aee64ed27f5837a00
         try {
             this.getPortefeuille().searchInstrument(keyIns);
             Instrument ins = this.getPortefeuille().getMapInstrument().get(keyIns);
             System.out.println("Liste des fonds de l'instrument " + keyIns + ":");
-<<<<<<< HEAD
-            for (Fonds a : ins.getValeurs()) {
-                System.out.println("Clé: " + a.getKey() + "; montant: " + a.getAmount());
-=======
             String s;
             for(Fonds a : ins.getValeurs()){
                 s = "Clé: " + a.getKey() + "; montant: " + a.getAmount();
                 System.out.println(s);
-                results.append(s).append("\n");
->>>>>>> 8d063842a1e000e77775ac1aee64ed27f5837a00
+                results.append(s).append("\n\n");
             }
             
         } catch (InstrumentInexistant ex) {
-            System.out.println("displayFondsIntrument: impossiblme d'afficher les fonds d'un instrument inexistant!");
+            System.out.println("displayFondsIntrument: impossible d'afficher les fonds d'un instrument inexistant!");
         }
         //Retourner la String
         return results.toString();
@@ -101,14 +92,8 @@ public class VoirInformations {
 
             //Ajouter au StringBuilder
             results.append(s).append("\n\n");
-        }
-<<<<<<< HEAD
-
-        //Retourner l'itérateur
-=======
-        
+        }        
         //Retourner la String
->>>>>>> 8d063842a1e000e77775ac1aee64ed27f5837a00
         return results.toString();
     }
 
@@ -144,15 +129,11 @@ public class VoirInformations {
             pourcentage = (amount / somme) * 100;
 
             //Affichage des informations
-<<<<<<< HEAD
-            System.out.println("Clé de l'instrument: " + key_inst + "\n% par rapport au fond " + key + "(" + amount + "): " + pourcentage + "\n");
-=======
             s = "Clé de l'instrument: " + key_inst + "\n% par rapport au fond " + key + "(" + amount + "): " + pourcentage;
             System.out.println(s + "\n"); 
             
             //Ajouter au StringBuilder
             results.append(s).append("\n\n");
->>>>>>> 8d063842a1e000e77775ac1aee64ed27f5837a00
         }
         
         //Retourner la String

@@ -90,11 +90,7 @@ public class Serial implements Serializable {
      *
      * @param file_name Nom du fichier où est stocké le portefeuille.
      */
-<<<<<<< HEAD
-    public void deserialiser(String file_name) {
-=======
     public Portefeuille deserialiser(String file_name){
->>>>>>> 8d063842a1e000e77775ac1aee64ed27f5837a00
         try {
             //Nom du fichier où récupérer les informations
             String file = file_name + ".serial";
